@@ -65,7 +65,7 @@ bool String::operator==(const String& string) const{
     return CheckEqual(string);
 }
 
-void String::init(int& size, char n[]){
+void String::init(int& size, char* n){
     if(stringArr != nullptr){
         delete [] stringArr;
         mSize = 0;
@@ -75,7 +75,7 @@ void String::init(int& size, char n[]){
     for(size_t i = 0; i < mSize; i++){
         stringArr[i] = n[i];
     }
-    //stringArr[mSize] = '\0';
+    stringArr[mSize] = '\0';
 }
 
 String String::operator+(const String& string) const{
@@ -104,4 +104,28 @@ String& String::operator=(const String& string){
     }
 
     return *this;
+}
+
+String& String::operator=(const std::string& string){
+    if(stringArr!=nullptr or mSize != 0){
+        delete [] stringArr;
+        stringArr = nullptr;
+        mSize = 0;
+    }
+    mSize = string.length();
+    stringArr = new char[mSize];
+    for(size_t i = 0; i < mSize; i++){
+        stringArr[i] = string[i];
+    }
+    return *this;
+}
+
+char String::operator[](size_t i) const{
+    assert(i < mSize && "String-Operator[]: index parameter must be less than String.mSize");
+    return stringArr[i];
+}
+
+//WORK ON NEXT
+size_t String::substr(std::string& string) const{
+    return 0;
 }

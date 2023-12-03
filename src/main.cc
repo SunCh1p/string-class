@@ -7,9 +7,9 @@ int main(){
     std::cout << "TEST\n";
     String result("David");
     result = dave + tmp;
-    //String result = dave + tmp;
-    std::cout << "TEST\n";
     std::cout << result << std::endl;
-    std::cout << result.Size() << std::endl;
+    result = "asdef";
+    std::cout << result << std::endl;
+    std::cout << result[0] << std::endl;
     return 0;
 }

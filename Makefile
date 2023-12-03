@@ -1,12 +1,14 @@
-.PHONY: all clean
+.PHONY: run all clean
 
 CXX := g++
 CXXFLAGS := -Wall -c -g
 LDFLAGS :=
 # Create the directory structure for object files
 
-all: clean main
-	@echo "RUNNING PROGRAM"
+all: clean run
+
+run: main
+	@echo Running $<.exe
 	@echo ----------------------------------
 	./main.exe
 	@echo ----------------------------------

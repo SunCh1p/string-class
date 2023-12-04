@@ -3,13 +3,8 @@
 
 int main(){
     String dave("Hello");
-    String tmp("Dave");
-    std::cout << "TEST\n";
-    String result("David");
-    result = dave + tmp;
-    std::cout << result << std::endl;
-    result = "asdef";
-    std::cout << result << std::endl;
-    std::cout << result[0] << std::endl;
+    std::cout << dave.FindSubstr("ll") << std::endl;
+    std::cout << dave.GetSubstr(1,3) << std:: endl;
+    std::cout << "SUCCESS" << std::endl;
     return 0;
 }

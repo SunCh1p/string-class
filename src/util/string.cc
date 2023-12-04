@@ -126,6 +126,35 @@ char String::operator[](size_t i) const{
 }
 
 //WORK ON NEXT
-size_t String::substr(std::string& string) const{
-    return 0;
+size_t String::FindSubstr(std::string string) const{
+    size_t n = string.length();
+    if(n == 0 || mSize < n){
+        return std::string::npos;
+    }
+    for(size_t i = 0; i <= mSize-n; i++){
+        if(stringArr[i] == string[0]){
+            bool ans = true;
+            for(size_t j = 0; j < string.length(); j++){
+                if(stringArr[i+j] != string[j]){
+                    ans = false;
+                    break;
+                }
+            }
+            if(ans == true){
+                return i;
+            }
+        }
+    }
+    return std::string::npos;
+}
+
+std::string String::GetSubstr(size_t index, size_t len){
+    if(index > mSize || mSize < len || (len+index) > mSize){
+        return "";
+    }
+    std::string ans = "";
+    for(size_t i = 0; i < len; i++){
+        ans += stringArr[index+i];
+    }
+    return ans;
 }

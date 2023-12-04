@@ -23,12 +23,8 @@ class String{
         std::ostream& print(std::ostream& outs) const;
         bool CheckEqual(const String& otherString) const;
         void init(int& size, char* n);
-
-        //find substring and return starting index of substring
-        size_t substr(std::string& string) const;
-        //return substring that is length of substring
-        //copy string types from one to the other through functions or assignment
-        //return const char* version of the string
+        size_t FindSubstr(std::string string) const;
+        std::string GetSubstr(size_t i, size_t len);
         
         //operator functions
         bool operator==(const String& string) const;
